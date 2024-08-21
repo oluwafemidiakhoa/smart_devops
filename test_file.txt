@@ -1,0 +1,31 @@
+import os
+
+class FileReader:
+    def __init__(self, file_path):
+        # Verify if the file exists before proceeding
+        if not os.path.isfile(file_path):
+            raise ValueError(f"The file path {file_path} does not exist.")
+
+        self.file_path = file_path
+
+    def read_file(self):
+        """
+        Function to read a file
+        """
+        try:
+            with open(self.file_path, 'r') as file:
+                print(file.read())
+        except IOError as e:
+            print(f"I/O error occurred: {str(e)}")
+        except Exception as e:
+            print(f"Unexpected error occurred: {str(e)}")
+
+# Usage:
+# Provide a valid file path here for testing
+file_path = "test_file.txt"
+# Create a dummy file for testing
+with open(file_path, 'w') as f:
+    f.write("Sample content for testing")
+
+reader = FileReader(file_path)
+reader.read_file()

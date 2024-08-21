@@ -1,0 +1,13 @@
+flask
+flask-restful
+openai
+
+
+
+
+
+
+
+
+
+
